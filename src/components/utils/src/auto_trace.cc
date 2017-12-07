@@ -30,7 +30,7 @@
  * POSSIBILITY OF SUCH DAMAGE.
  */
 
-#include <apr_time.h>
+#include <apr-1.0/apr_time.h>
 #include <log4cxx/spi/loggingevent.h>
 
 #include "utils/auto_trace.h"
@@ -47,7 +47,7 @@ AutoTrace::AutoTrace(log4cxx::LoggerPtr logger,
              "Enter",
              apr_time_now(),
              location_,
-             ::log4cxx::spi::LoggingEvent::getCurrentThreadName());
+             "");
   }
 }
 
@@ -59,7 +59,7 @@ AutoTrace::~AutoTrace() {
              apr_time_now(),
              location_,  // the location corresponds rather to creation of
                          // autotrace object than to deletion
-             ::log4cxx::spi::LoggingEvent::getCurrentThreadName());
+             "");
   }
 }
 
