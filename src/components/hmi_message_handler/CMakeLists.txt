@@ -77,7 +77,7 @@ add_library("HMIMessageHandler" ${SOURCES})
 target_link_libraries("HMIMessageHandler" ${LIBRARIES})
 
 if(ENABLE_LOG)
-  target_link_libraries("HMIMessageHandler" log4cxx -L${LOG4CXX_LIBS_DIRECTORY})
+  target_link_libraries("HMIMessageHandler" log4cxx)
 endif()
 
 # Tests temporary are inactivated. For details please check

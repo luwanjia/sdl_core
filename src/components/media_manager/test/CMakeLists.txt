@@ -70,5 +70,5 @@ endif()
 create_test("media_manager_test" "${SOURCES}" "${LIBRARIES}")
 
 if(ENABLE_LOG)
-    target_link_libraries("media_manager_test" log4cxx -L${LOG4CXX_LIBS_DIRECTORY})
+    target_link_libraries("media_manager_test" log4cxx)
 endif()

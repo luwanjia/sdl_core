@@ -5,6 +5,11 @@
 #include "json/reader.h"
 #include "utils/file_system.h"
 
+#ifdef ENABLE_LOG
+#include "utils/log_message_loop_thread.h"
+#include "utils/logger.h"
+#endif
+
 namespace policy_table = rpc::policy_table_interface_base;
 
 enum ResultCode {

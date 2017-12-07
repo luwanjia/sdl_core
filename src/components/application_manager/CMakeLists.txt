@@ -432,7 +432,7 @@ list(APPEND LIBRARIES
 )
 
 if(ENABLE_LOG)
-  list(APPEND LIBRARIES log4cxx -L${LOG4CXX_LIBS_DIRECTORY})
+  list(APPEND LIBRARIES log4cxx)
 endif()
 
 target_link_libraries("ApplicationManager" ${LIBRARIES})

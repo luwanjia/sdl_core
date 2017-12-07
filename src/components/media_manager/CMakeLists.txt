@@ -100,7 +100,7 @@ add_library("MediaManager" ${SOURCES})
 target_link_libraries("MediaManager" ${LIBRARIES})
 
 if(ENABLE_LOG)
-  target_link_libraries("MediaManager" log4cxx -L${LOG4CXX_LIBS_DIRECTORY})
+  target_link_libraries("MediaManager" log4cxx)
 endif()
 
 if(BUILD_TESTS)

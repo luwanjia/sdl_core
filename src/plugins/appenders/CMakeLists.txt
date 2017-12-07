@@ -37,13 +37,11 @@ include_directories(
 collect_sources(SOURCES "${CMAKE_CURRENT_SOURCE_DIR}")
 
 set(LIBRARIES
-  log4cxx -L${LOG4CXX_LIBS_DIRECTORY}
+  log4cxx
 )
 
 add_library(appenders SHARED ${SOURCES})
 target_link_libraries(appenders ${LIBRARIES})
-
-add_dependencies(appenders install-3rd_party_logger)
 
 install(TARGETS appenders
   DESTINATION bin

@@ -65,9 +65,9 @@ endif()
 
 if(ENABLE_LOG)
   list(APPEND LIBRARIES
-	log4cxx -L${LOG4CXX_LIBS_DIRECTORY}
-    apr-1 -L${APR_LIBS_DIRECTORY}
-    aprutil-1 -L${APR_UTIL_LIBS_DIRECTORY}
+	log4cxx
+    apr-1
+    aprutil-1
 	ConfigProfile
   )
 else()
@@ -114,10 +114,6 @@ endif()
 
 add_library("Utils" ${SOURCES})
 target_link_libraries("Utils" ${LIBRARIES})
-
-if(ENABLE_LOG)
-  add_dependencies("Utils" install-3rd_party_logger)
-endif()
 
 if(BUILD_TESTS)
   add_subdirectory(test)

@@ -92,7 +92,7 @@ add_library(Policy SHARED ${SOURCES})
 target_link_libraries(Policy ${LIBRARIES})
 
 if(ENABLE_LOG)
-  target_link_libraries(Policy log4cxx -L${LOG4CXX_LIBS_DIRECTORY})
+  target_link_libraries(Policy log4cxx)
 endif()
 
 set(LIBRARY_NAME ${CMAKE_SHARED_LIBRARY_PREFIX}Policy${CMAKE_SHARED_LIBRARY_SUFFIX})

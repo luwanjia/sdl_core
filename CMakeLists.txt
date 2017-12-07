@@ -113,6 +113,8 @@ if( NOT CMAKE_BUILD_TYPE )
   set(CMAKE_BUILD_TYPE Debug CACHE STRING "Choose the type of build. Options are: None, Debug, Release, RelWithDebInfo, MinSizeRel." FORCE)
 endif()
 
+set (HMIADAPTER "messagebroker")
+
 if (HMI_ADAPTER_OPTION)
   if (${HMI_ADAPTER_OPTION} STREQUAL "MESSAGEBROKER")
     message(STATUS "Jenkins integration: selected HMI adapter MESSAGEBROKER")
@@ -278,8 +280,6 @@ endif()
 
 if(ENABLE_LOG)
   add_definitions(-DENABLE_LOG)
-  set(install-3rd_party_logger "install-3rd_party_logger")
-  message(STATUS "Logger enabled")
 endif()
 
 if (TELEMETRY_MONITOR)
@@ -363,12 +363,6 @@ if (HMI STREQUAL "web" AND NOT DEFINED HMIADAPTER)
     set(HMIADAPTER "messagebroker")
 endif()
 
-if (HMIADAPTER STREQUAL "dbus")
-    set(HMI_DBUS_API ON)
-    add_definitions(-DDBUS_HMIADAPTER)
-    add_definitions(-DHMI_DBUS_API)
-    set(install-3rd_party_dbus "install-3rd_party_dbus")
-endif()
 if (HMIADAPTER STREQUAL "messagebroker")
     set(HMI_JSON_API ON)
     add_definitions(-DMESSAGEBROKER_HMIADAPTER)
@@ -381,13 +375,7 @@ include_directories(
   ${COMPONENTS_DIR}/protocol/include
 )
 
-# --- 3rd party libs
-add_subdirectory(./src/3rd_party EXCLUDE_FROM_ALL)
-
 find_package(OpenSSL REQUIRED)
-if(ENABLE_LOG)
-  include_directories ( ${LOG4CXX_INCLUDE_DIRECTORY} )
-endif()
 
 if(ENABLE_SECURITY)
   add_definitions(-DENABLE_SECURITY)

@@ -98,7 +98,7 @@ add_library("TransportManager" ${SOURCES})
 target_link_libraries("TransportManager" ${LIBRARIES})
 
 if(ENABLE_LOG)
-  target_link_libraries("TransportManager" log4cxx -L${LOG4CXX_LIBS_DIRECTORY})
+  target_link_libraries("TransportManager" log4cxx)
 endif()
 
 if(BUILD_TESTS)

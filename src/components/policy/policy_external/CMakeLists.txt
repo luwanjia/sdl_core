@@ -77,7 +77,7 @@ add_library(${target} SHARED ${SOURCES})
 target_link_libraries(${target} ${LIBRARIES} )
 
 if (ENABLE_LOG)
-  target_link_libraries(${target} log4cxx -L${LOG4CXX_LIBS_DIRECTORY})
+  target_link_libraries(${target} log4cxx)
 endif()
 
 add_custom_target(copy_library_${target} ALL
